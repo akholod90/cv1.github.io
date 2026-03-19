@@ -8,7 +8,7 @@
     <style>
         :root {
             --black: #0f0f0f;
-            --blue: #2563eb;        /* более насыщенный синий */
+            --blue: #2563eb;
             --blue-light: #dbeafe;
             --gray-light: #f7f7f9;
             --gray-mid: #6b7280;
@@ -35,11 +35,12 @@
         }
 
         .page {
-            max-width: 210mm;
+            width: 100%;
+            max-width: 1200px;        /* вместо 210mm – растягивается на весь экран, но не слишком широко */
             margin: 0 auto 30px;
             background: var(--white);
             box-shadow: var(--shadow);
-            padding: 20mm 20mm;
+            padding: 20mm 20mm;        /* для печати оставлено, на экране выглядит как большие поля */
             position: relative;
             page-break-after: always;
             transition: box-shadow 0.2s;
@@ -53,6 +54,11 @@
         @media (max-width: 600px) {
             body { padding: 8px; }
             .page { padding: 15px; }
+            /* на телефоне логотипы сразу цветные */
+            .brand-cloud img {
+                filter: none;
+                opacity: 1;
+            }
         }
 
         /* ========== ШАПКА ========== */
@@ -320,7 +326,7 @@
         /* печатная версия */
         @media print {
             body { background: white; padding: 0; }
-            .page { box-shadow: none; margin: 0 auto; }
+            .page { box-shadow: none; margin: 0 auto; max-width: 210mm; }  /* для печати возвращаем формат A4 */
             .brand-cloud img { filter: none; opacity: 1; }
             .profile-img { filter: grayscale(100%); }
             .portfolio-btn { background: black; color: white; }
