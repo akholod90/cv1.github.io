@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алиса Смирнова — Портфолио</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #111111;
+            --blue: #3b82f6;
+            --blue-light: #eef2ff;
+            --gray-light: #f4f4f4;
+            --gray-text: #666666;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--gray-light);
+            color: var(--black);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .page {
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            background: var(--white);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            padding: 20mm 20mm;
+            position: relative;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+        .header p {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--blue);
+            margin-top: 15px;
+            text-transform: uppercase;
+            border-left: 5px solid var(--blue);
+            padding-left: 15px;
+        }
+
+        .contacts-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+            padding: 12px 0;
+            margin-bottom: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 700px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--blue);
+            border-bottom: 2px solid var(--blue);
+            padding-bottom: 8px;
+        }
+
+        .subsection-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0 20px 0;
+            letter-spacing: -0.5px;
+        }
+        .subsection-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .content-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .content-item:last-child {
+            border-bottom: none;
+        }
+
+        .content-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
+        .content-item .meta {
+            font-size: 13px;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        .content-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .case-img {
+            max-width: 100%;
+            max-height: 300px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .case-result {
+            background: var(--blue-light);
+            padding: 12px 18px;
+            font-weight: 600;
+            font-size: 14px;
+            border-left: 4px solid var(--blue);
+            margin: 15px 0;
+        }
+
+        .case-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .case-link:hover {
+            border-bottom-color: var(--blue);
+        }
+
+        .descriptions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+        }
+        .desc-item {
+            text-align: center;
+        }
+        .desc-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+        .desc-item img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .email-sample {
+            background: #fafafa;
+            padding: 25px;
+            border-left: 5px solid var(--blue);
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .email-sample strong {
+            color: var(--blue);
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid var(--black);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        @media print {
+            body { background: white; }
+            .page { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>АЛИСА СМИРНОВА</h1>
+            <p>Портфолио — тексты и SMM</p>
+        </div>
+
+        <div class="contacts-bar">
+            <span>tg: @Lis_Smirnova</span>
+            <span>тел: 8 (929) 705-99-90</span>
+            <span>почта: akholod90@gmail.com</span>
+        </div>
+
+        <!-- SMM / Посты -->
+        <div class="main-grid">
+            <div class="section-label">SMM / Посты</div>
+            <div>
+                <h3 class="subsection-title">Автомобили</h3>
+                
+                <div class="content-item">
+                    <div class="meta">
+                        <span>Subaru</span>
+                    </div>
+                    <h3>Регулировка высоты крепления ремней безопасности</h3>
+                    <p><strong>Задача:</strong> подготовить текст поста о регулировке высоты крепления ремней безопасности.</p>
+                    <img src="Пример_субару.png" alt="Скриншот поста Subaru" class="case-img">
+                    <div class="case-result">📊 Результат: 182 лайка, 22 комментария, 5 репостов, 52,1 тыс. просмотров</div>
+                    <a href="https://vk.com/wall-35242910_69970" target="_blank" class="case-link">Оригинал →</a>
+                </div>
+
+                <div class="content-item">
+                    <div class="meta">
+                        <span>Новосталь-М</span>
+                    </div>
+                    <h3>Работа оборудования</h3>
+                    <p><strong>Задача:</strong> подготовить текст поста с описанием работы оборудования.</p>
+                    <img src="Пример_Новосталь.png" alt="Скриншот поста Новосталь" class="case-img">
+                    <div class="case-result">📊 Результат: 37 лайков, 10 репостов, 1495 просмотров</div>
+                    <a href="https://t.me/Novostal_M/301" target="_blank" class="case-link">Оригинал →</a>
+                </div>
+
+                <h3 class="subsection-title">Недвижимость</h3>
+                <div class="content-item">
+                    <div class="meta">
+                        <span>ДОНСТРОЙ</span>
+                    </div>
+                    <h3>Планировочные решения через образ жизни</h3>
+                    <p><strong>Задача:</strong> подготовить текст поста о планировочных решениях, продавать через образ жизни.</p>
+                    <img src="Пример_ДС.png" alt="Скриншот поста ДОНСТРОЙ" class="case-img">
+                    <div class="case-result">📊 Результат: 40 лайков, 12 репостов, 10 885 просмотров</div>
+                    <a href="https://t.me/Donstroymsk/5753" target="_blank" class="case-link">Оригинал →</a>
+                </div>
+
+                <h3 class="subsection-title">Краудфандинг</h3>
+                <div class="content-item">
+                    <div class="meta">
+                        <span>Planeta.ru</span>
+                    </div>
+                    <h3>Призыв поддержать крауд‑проект</h3>
+                    <p><strong>Задача:</strong> подготовить текст поста с призывом поддержать крауд-проект.</p>
+                    <img src="Пример_Планета.png" alt="Скриншот поста Planeta.ru" class="case-img">
+                    <div class="case-result">📊 Результат: 24 лайка, 5 репостов, 1 148 просмотров</div>
+                    <a href="https://t.me/planeta_ru/5235" target="_blank" class="case-link">Оригинал →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Статьи -->
+        <div class="main-grid">
+            <div class="section-label">Статьи</div>
+            <div>
+                <h3 class="subsection-title">Недвижимость</h3>
+                <div class="content-item">
+                    <p><strong>Задача:</strong> подготовить статью о преимуществах отделки от застройщика.</p>
+                    <img src="Пример_Статья ДС.png" alt="Скриншот статьи ДОНСТРОЙ" class="case-img">
+                    <a href="https://dzen.ru/a/aTlWQqHk9E12OlHs" target="_blank" class="case-link">Читать на Дзене →</a>
+                </div>
+
+                <h3 class="subsection-title">Автомобили</h3>
+                <div class="content-item">
+                    <p><strong>Задача:</strong> подготовить статью о правилах проезда по склону.</p>
+                    <img src="Пример_Статья УАЗ.png" alt="Скриншот статьи УАЗ" class="case-img">
+                    <a href="https://vk.com/@uazrussia-kak-ehat-poperek-sklona" target="_blank" class="case-link">Читать во ВКонтакте →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Рассылки -->
+        <div class="main-grid">
+            <div class="section-label">Рассылки</div>
+            <div>
+                <div class="content-item">
+                    <h3>Тема письма: «Объединяем Россию и Корею: создаём культурный центр в Петербурге»</h3>
+                    <div class="email-sample">
+                        <p><strong>Аннён-хасэйо, планетяне!</strong></p>
+                        <p>Мечтали побывать в Корее, но откладывали поездку на потом?<br>
+                        Теперь Корея ближе, чем кажется: в Петербурге, на Таллинской улице, открылся Корейский дом.</p>
+                        <p>Здесь можно выучить язык, научиться готовить кимчи, попробовать себя в тхэквондо или сыграть на барабанах. А если у вас много энергии — присоединяйтесь к танцам или попадайте в число тех, кого отправят на стажировку в Корею.</p>
+                        <p>Корейский дом открыли российские корейцы — для всех, кому интересна культура страны утренней свежести.</p>
+                        <p>Но работы ещё достаточно: нужно доделать интерьер, купить мебель и поставить охранную систему.</p>
+                        <p>Можно помочь — и получить сувенир, футболку или бейсболку с символикой Корейского дома. А ещё ваше имя навсегда останется в Книге или на стене благодарности.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Описания товаров (без подписей) -->
+        <div class="main-grid">
+            <div class="section-label">Описания товаров</div>
+            <div>
+                <div class="descriptions-grid">
+                    <div class="desc-item">
+                        <img src="Пример_Описание_Люмен.png" alt="Описание Люмен">
+                    </div>
+                    <div class="desc-item">
+                        <img src="Пример_Описание_Алиса.png" alt="Описание Алиса">
+                    </div>
+                    <div class="desc-item">
+                        <img src="Описание_Пример Гарри.png" alt="Описание Гарри">
+                    </div>
+                    <div class="desc-item">
+                        <img src="Пример_Описание Амур.png" alt="Описание Амур">
+                    </div>
+                    <div class="desc-item">
+                        <img src="Пример_Описание_Майя.png" alt="Описание Майя">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Алиса Смирнова</span>
+            <span>tg: @Lis_Smirnova</span>
+            <span>akholod90@gmail.com</span>
+        </div>
+    </div>
+</body>
+</html>
